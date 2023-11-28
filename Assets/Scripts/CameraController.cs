@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour
 {
 
     public PlayerController player;
-    private float sensitivity = 500f;
+    private float sensitivity = 800f;
     private float clampAngle = 85f;
 
     private float verticalRotation;
@@ -27,11 +27,11 @@ public class CameraController : MonoBehaviour
 
     private void Look()
     {
-        float mouseVertical = Input.GetAxis("mouse Y");
-        float mouseHorizontal = Input.GetAxis("mouse X");
+        float MouseVertical = Input.GetAxis("Mouse Y");
+        float MouseHorizontal = Input.GetAxis("Mouse X");
 
-        this.verticalRotation += mouseVertical * this.sensitivity * Time.deltaTime;
-        this.horizontalRotation += mouseHorizontal * this.sensitivity * Time.deltaTime;
+        this.verticalRotation += MouseVertical * this.sensitivity * Time.deltaTime;
+        this.horizontalRotation += MouseHorizontal * this.sensitivity * Time.deltaTime;
 
         this.verticalRotation = Mathf.Clamp(this.verticalRotation, -this.clampAngle, this.clampAngle);
 
