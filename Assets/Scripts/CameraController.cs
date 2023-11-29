@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Animations;
 
 public class CameraController : MonoBehaviour
 {
 
     public PlayerController player;
-    private float sensitivity = 800f;
+    public float sensitivity = 800f;
     private float clampAngle = 85f;
 
     private float verticalRotation;
@@ -27,11 +26,11 @@ public class CameraController : MonoBehaviour
 
     private void Look()
     {
-        float MouseVertical = Input.GetAxis("Mouse Y");
-        float MouseHorizontal = Input.GetAxis("Mouse X");
+        float mouseVertical = Input.GetAxis("Mouse Y");
+        float mouseHorizontal = Input.GetAxis("Mouse X");
 
-        this.verticalRotation += MouseVertical * this.sensitivity * Time.deltaTime;
-        this.horizontalRotation += MouseHorizontal * this.sensitivity * Time.deltaTime;
+        this.verticalRotation += mouseVertical * this.sensitivity * Time.deltaTime;
+        this.horizontalRotation += mouseHorizontal * this.sensitivity * Time.deltaTime;
 
         this.verticalRotation = Mathf.Clamp(this.verticalRotation, -this.clampAngle, this.clampAngle);
 
