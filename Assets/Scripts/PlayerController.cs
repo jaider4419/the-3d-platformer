@@ -21,15 +21,20 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Grounded();
-        Jump();
+        
         Move();
+    }
+
+    private void Update()
+    {
+        Jump();
     }
 
     private void Jump()
     {
         if (Input.GetKeyDown(KeyCode.Space) && this.grounded)
         {
-            this.rb.AddForce(Vector3.up * 4, ForceMode.Impulse);
+            this.rb.AddForce(Vector3.up * 400, ForceMode.Impulse);
         }
     }
 
@@ -44,7 +49,7 @@ public class PlayerController : MonoBehaviour
             this.grounded = false;
         }
 
-        this.anim.SetBool("jump", this.grounded);
+        this.anim.SetBool("jump", !grounded);
     }
 
     private void Move()
