@@ -26,6 +26,8 @@ public class CameraController : MonoBehaviour
 
     private void Look()
     {
+        Debug.Log("A");
+
         float mouseVertical = Input.GetAxis("Mouse Y");
         float mouseHorizontal = Input.GetAxis("Mouse X");
 
