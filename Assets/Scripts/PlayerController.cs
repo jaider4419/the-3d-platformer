@@ -21,26 +21,21 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Grounded();
-        
-        Move();
-    }
-
-    private void Update()
-    {
         Jump();
+        Move();
     }
 
     private void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && this.grounded)
+        if(Input.GetKeyDown(KeyCode.Space) && this.grounded)
         {
-            this.rb.AddForce(Vector3.up * 400, ForceMode.Impulse);
+            this.rb.AddForce(Vector3.up * 4, ForceMode.Impulse);
         }
     }
 
     private void Grounded()
     {
-        if (Physics.CheckSphere(this.transform.position + Vector3.down, 0.2f, layerMask))
+        if(Physics.CheckSphere(this.transform.position + Vector3.down, 0.2f, layerMask))
         {
             this.grounded = true;
         }
@@ -49,7 +44,7 @@ public class PlayerController : MonoBehaviour
             this.grounded = false;
         }
 
-        this.anim.SetBool("jump", !grounded);
+        this.anim.SetBool("jump", !this.grounded);
     }
 
     private void Move()
@@ -60,7 +55,7 @@ public class PlayerController : MonoBehaviour
         Vector3 movement = this.transform.forward * verticalAxis + this.transform.right * horizontalAxis;
         movement.Normalize();
 
-        this.transform.position += movement * 0.09f;
+        this.transform.position += movement * 0.08f;
 
         this.anim.SetFloat("vertical", verticalAxis);
         this.anim.SetFloat("horizontal", horizontalAxis);
