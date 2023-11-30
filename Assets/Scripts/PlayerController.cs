@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour
     public LayerMask layerMask;
     public bool grounded;
 
+    public float Jum = 5;
+    public float Dis = 5;
+    public GameObject Groundcheck;
 
     // Start is called before the first frame update
     void Start()
@@ -30,13 +33,13 @@ public class PlayerController : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space) && this.grounded)
         {
-            this.rb.AddForce(Vector3.up * 4, ForceMode.Impulse);
+            this.rb.AddForce(Vector3.up * Jum, ForceMode.Impulse);
         }
     }
 
     private void Grounded()
     {
-        if(Physics.CheckSphere(this.transform.position + Vector3.down, 0.2f, layerMask))
+        if(Physics.CheckSphere(Groundcheck.transform.position , Dis, layerMask))
         {
             this.grounded = true;
         }
