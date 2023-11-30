@@ -19,7 +19,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         this.rb = GetComponent<Rigidbody>();
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void FixedUpdate()
