@@ -5,19 +5,18 @@ using UnityEngine.UI;
 
 public class ItemCollector : MonoBehaviour
 {
-    int coins = 0;
+    int notes = 0;
 
-    [SerializeField] Text coinsText;
+    [SerializeField] Text NotesText;
 
-    [SerializeField] AudioSource collectionSound;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Coin"))
+        if (other.gameObject.CompareTag("Notes"))
         {
             Destroy(other.gameObject);
-            coins++;
-            coinsText.text = "Coins: " + coins;
-            collectionSound.Play();
+            notes++;
+            NotesText.text = "Notes: " + notes;
         }
     }
+
 }
